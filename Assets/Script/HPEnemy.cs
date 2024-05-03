@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class HPEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float hp = 10f;
+
+    // Function to take damage
+    public void TakeDamage(float damage)
     {
-        
+        hp -= damage;
+
+        // Check if HP is less than or equal to zero
+        if (hp <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Function to handle death
+    void Die()
     {
-        
+        // Add any death behavior here (e.g., play death animation, deactivate game object, etc.)
+        Destroy(gameObject);
     }
 }
