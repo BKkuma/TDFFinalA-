@@ -22,6 +22,7 @@ public class GridLL : MonoBehaviour
     }
     void CreateGrid()
     {
+        
         grid = new Node[gridSizeX, gridSizeY];
         Vector3 worldButtonLeft = transform.position - Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.y/2;
 
@@ -35,13 +36,14 @@ public class GridLL : MonoBehaviour
              }
             }
     }
+    
     public List<Node> Getneighbours(Node node)
     {
         List<Node> neighbour = new List<Node>();
 
-        for (int x = -1; x <= 0; x++)
+        for (int x = -1; x <= 1; x++)
         {
-            for (int y = -1; y <= 0; y++)
+            for (int y = -1; y <= 1; y++)
             {
                 if ( x == 0 && y == 0 )                
                     continue;   
