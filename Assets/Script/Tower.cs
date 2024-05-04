@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
     public float attackDamage = 10f;
     public float cooldownTime = 1f; // Cooldown time in seconds
     private bool canAttack = true; // Flag to check if tower can attack
-
+    [SerializeField] private GameObject vfx; // Reference to the VFX prefab
     public LayerMask enemyLayer;
 
     // Update is called once per frame
@@ -20,15 +20,19 @@ public class Tower : MonoBehaviour
             // Check for enemies within range
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
 
-            // If there are enemies in range, attack them
+            // If there are enemies in range, attack them and play VFX
+             // ในคลาส Tower
             foreach (Collider col in hitColliders)
             {
+                VFX();
                 HPEnemy enemy = col.GetComponent<HPEnemy>();
                 if (enemy != null)
                 {
                     enemy.TakeDamage(attackDamage);
+                    enemy.SetAttacked(); // Set the attacked flag of the enemy
                 }
             }
+
 
             // Start cooldown
             StartCoroutine(Cooldown());
@@ -53,5 +57,14 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    // Function to play VFX
+    private void VFX()
+    {
+        if (vfx != null)
+        {
+            Instantiate(vfx, transform.position, transform.rotation);
+        }
     }
 }
