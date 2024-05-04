@@ -18,6 +18,8 @@ public class HPEnemy : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+            VFXDIE();
+
         }
         else
         {
@@ -35,8 +37,8 @@ public class HPEnemy : MonoBehaviour
     // Function to handle death
     void Die()
     {
-        // Add any death behavior here (e.g., play death animation, deactivate game object, etc.)
         Destroy(gameObject);
+
     }
 
     // Set flag when enemy is attacked
