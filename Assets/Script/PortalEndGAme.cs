@@ -20,8 +20,7 @@ public class PortalEndGAme : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             IncrementEnemyCount();
-        }
-    }
+        }    }
 
     public void IncrementEnemyCount()
     {
@@ -36,6 +35,6 @@ public class PortalEndGAme : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(1); // Change 1 to the build index of the scene you want to load
+        SceneManager.LoadScene(2); // Change 1 to the build index of the scene you want to load
     }
 }
