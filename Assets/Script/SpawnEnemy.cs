@@ -6,13 +6,13 @@ public class SpawnEnemy : MonoBehaviour
 {
     public GameObject enemyPrefab; // Reference to the Enemy prefab
     public LayerMask layerMask; // LayerMask to detect clicks on the LayerStage
-    private bool hasSpawned = false; // Flag to check if an enemy has been spawned
+    private bool canSpawn = true; // Flag to check if spawning is allowed
 
     // Update is called once per frame
     void Update()
     {
-        // Check if the left mouse button is clicked and an enemy has not been spawned yet
-        if (Input.GetMouseButtonDown(0) && !hasSpawned)
+        // Check if spawning is allowed and the left mouse button is clicked
+        if (canSpawn && Input.GetMouseButtonDown(0))
         {
             // Create a ray from the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -23,10 +23,8 @@ public class SpawnEnemy : MonoBehaviour
             {
                 // Spawn an enemy at the hit point
                 Spawn(hit.point);
+                canSpawn = false; // Disable spawning until the next click
             }
-
-            // Set the flag to true to prevent further spawning
-            hasSpawned = true;
         }
     }
 
