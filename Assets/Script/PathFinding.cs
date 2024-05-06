@@ -6,9 +6,9 @@ using System;
 
 public class PathFinding : MonoBehaviour
 {
-    PathRequestManager requestManager;
+    private PathRequestManager requestManager;
 
-    GridLL grid;
+    private GridLL grid;
 
     private void Awake()
     {
@@ -83,7 +83,7 @@ public class PathFinding : MonoBehaviour
         requestManager.FisnishedProcessingPath(waypoint, pathSuccess);
     }
 
-    Vector3[] RetracePath(Node startnode,Node endnode)
+    private Vector3[] RetracePath(Node startnode,Node endnode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endnode;
@@ -99,7 +99,7 @@ public class PathFinding : MonoBehaviour
        
     }
 
-    Vector3[] SimplifyPath(List<Node> path)
+   private Vector3[] SimplifyPath(List<Node> path)
     {
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 direcionOld = Vector2.zero;
@@ -115,7 +115,7 @@ public class PathFinding : MonoBehaviour
         }
         return waypoints.ToArray(); 
     }
-    int GetDistance(Node nodeA,Node nodeB)
+    private int GetDistance(Node nodeA,Node nodeB)
     {
         int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
         int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);

@@ -22,12 +22,12 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Portal"))
         {
-            EnemyCountScore enemyCountScore = FindObjectOfType<EnemyCountScore>(); // หาคลาส EnemyCountScore ในฉาก
+            EnemyCountScore enemyCountScore = FindObjectOfType<EnemyCountScore>(); 
             if (enemyCountScore != null)
             {
-                enemyCountScore.DecrementEnemyCount(); // ลดจำนวน Enemy ใน EnemyCountScore
+                enemyCountScore.DecrementEnemyCount(); 
             }
-            Destroy(gameObject); // ทำลาย Enemy
+            Destroy(gameObject); 
         }
     }
 

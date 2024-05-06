@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PathRequestManager : MonoBehaviour
 {
-    Queue<PathRequest> pathRequestsQueue = new Queue<PathRequest>();
-    PathRequest currentPathRequest;
+    private Queue<PathRequest> pathRequestsQueue = new Queue<PathRequest>();
+    private PathRequest currentPathRequest;
 
-    static PathRequestManager instance;
-    PathFinding pathfinding;
+    private static PathRequestManager instance;
+    private PathFinding pathfinding;
 
-    bool isProcessingPath;
+    private bool isProcessingPath;
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
         pathfinding = GetComponent<PathFinding>();
@@ -26,7 +26,7 @@ public class PathRequestManager : MonoBehaviour
         instance.TryProcessNext();
     }
 
-    void TryProcessNext()
+    private void TryProcessNext()
     {
         if (!isProcessingPath && pathRequestsQueue.Count > 0)
         {
@@ -43,7 +43,7 @@ public class PathRequestManager : MonoBehaviour
         TryProcessNext();
     }
 
-    struct PathRequest
+    private struct PathRequest
     {
         public Vector3 pathStart;
         public Vector3 pathEnd;

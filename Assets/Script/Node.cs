@@ -13,7 +13,7 @@ public class Node : IHeapItem<Node>
     public int gCost;
     public int hCost;
     public Node parent;
-    int heapIndex;
+    private int heapIndex;
 
     public Node(bool _walkable, Vector3 _wolrdPos,  int _gridX, int _gridY)
     {

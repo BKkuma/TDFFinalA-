@@ -3,33 +3,32 @@ using TMPro;
 
 public class EnemyCountScore : MonoBehaviour
 {
-    public TMP_Text enemyCountText; // อ้างอิงไปยังคอมโพเนนต์ TMP_Text
-    private int enemyCount = 0; // ตัวนับจำนวน Enemy
-
-    void Start()
+    [SerializeField] private TMP_Text enemyCountText; 
+    private int enemyCount = 0;
+    private void Start()
     {
-        UpdateEnemyCountText(); // อัพเดทข้อความจำนวน Enemy ในเริ่มต้น
+        UpdateEnemyCountText(); 
     }
 
-    // เพิ่มจำนวน Enemy
+    
     public void IncrementEnemyCount()
     {
         enemyCount++;
-        UpdateEnemyCountText(); // อัพเดทข้อความจำนวน Enemy
+        UpdateEnemyCountText(); 
     }
 
-    // ลดจำนวน Enemy
+    
     public void DecrementEnemyCount()
     {
         enemyCount--;
-        UpdateEnemyCountText(); // อัพเดทข้อความจำนวน Enemy
+        UpdateEnemyCountText(); 
     }
 
-    // อัพเดทข้อความจำนวน Enemy ใน TextMeshPro
-    void UpdateEnemyCountText()
+    
+    private void UpdateEnemyCountText()
     {
-        int absEnemyCount = Mathf.Abs(enemyCount); // แปลงค่าจำนวน Enemy เป็นบวก
-        enemyCountText.text = "Enemy Count: " + absEnemyCount.ToString() + "/5"; // อัพเดทข้อความจำนวน Enemy
+        int absEnemyCount = Mathf.Abs(enemyCount); 
+        enemyCountText.text = "Enemy Count: " + absEnemyCount.ToString() + "/5"; 
     }
 
 }

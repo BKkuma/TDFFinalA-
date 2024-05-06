@@ -8,12 +8,12 @@ public class GridLL : MonoBehaviour
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
-    Node[,] grid;
+    private Node[,] grid;
 
-    float nodeDiameter;
-    int gridSizeX, gridSizeY;
+    private float nodeDiameter;
+    private int gridSizeX, gridSizeY;
 
-    void Awake()
+    private void Awake()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
@@ -28,7 +28,7 @@ public class GridLL : MonoBehaviour
             return gridSizeX * gridSizeY;
         }
     }
-    void CreateGrid()
+    private void CreateGrid()
     {
         
         grid = new Node[gridSizeX, gridSizeY];
@@ -83,7 +83,7 @@ public class GridLL : MonoBehaviour
 
     
 
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position,new Vector3(gridWorldSize.x,1 , gridWorldSize.y));
 

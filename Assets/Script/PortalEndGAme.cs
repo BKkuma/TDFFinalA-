@@ -7,8 +7,8 @@ public class PortalEndGAme : MonoBehaviour
 {
     [SerializeField] private GameObject vfxEndGame;
 
-    public int enemyCount = 0;
-    public bool isLoaded = false;
+    private int enemyCount = 0;
+    private bool isLoaded = false;
 
     private void Start()
     {
@@ -33,8 +33,8 @@ public class PortalEndGAme : MonoBehaviour
         }
     }
 
-    void LoadNextScene()
+    private void LoadNextScene()
     {
-        SceneManager.LoadScene(2); // Change 1 to the build index of the scene you want to load
+        SceneManager.LoadScene(2); 
     }
 }
